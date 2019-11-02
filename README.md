@@ -63,11 +63,7 @@ surface plots in Linux Xubuntu 18.04.3LTS.
     On the CLI, your instructions are:
     
         gcc diff_finger.c -o diff_finger
-<<<<<<< HEAD
-        ./diff_finger in_A.dat in_B.dat > diff_in_A_in_B.dat
-=======
         ./diff_finger map_A.dat map_B.dat > diff_map_A_map_B.dat
->>>>>>> dev_nbehrnd
     
     For obvious reasons only maps of same type (standard, translated,
     extended) should be compared this way with each other.
