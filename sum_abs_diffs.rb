@@ -8,6 +8,6 @@ ARGV.each do |filename|
     sum_abs_diffs = sum_abs_diffs + tokens[2].to_f.abs
   end
   print "%20s %8.4f\n" % [filename, sum_abs_diffs]
-end 
-    
-    
+end
+
+
