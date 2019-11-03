@@ -3,7 +3,7 @@
 # name:    plot_finger.sh
 # authors: Paolo Raiteri, Andrew Rohl, Norwid Behrnd
 # licence: GPLv2, or later
-# edit:    2019-01-03 (YYYY-MM-DD)
+# edit:    2019-11-03 (YYYY-MM-DD)
 #
 # Bash script to plot a Hirshfeld surface 2D fingerprint with gnuplot
 #
