@@ -72,8 +72,8 @@
     
     On the CLI, your instructions are:
     #+BEGIN_SRC shell
-	    gcc diff_finger.c -o diff_finger
-	    ./diff_finger map_A.dat map_B.dat > diff_map_A_map_B.dat
+      gcc diff_finger.c -o diff_finger
+      ./diff_finger map_A.dat map_B.dat > diff_map_A_map_B.dat
     #+END_SRC
     For obvious reasons only maps of same type (standard, translated,
     extended) should be compared this way with each other.
