@@ -55,4 +55,29 @@ At present, the sub-folder contains these scripts:
   difference map of two 2D fingerprint maps.  Canvas size originally
   set up to 6.0 x 6.0 cm (about 2.4 x 2.4 in).
 
++ plot_finger_pdf_sparse.sh, added 2019-11-04.
+
+  Derived from plot_finger_pdf.sh.  As indicated by Ethan Merrit,
+  gnuplot includes the concept of 'conditional printing', which here
+  considers only tiles to contribute to the scatter plot if their
+  z-value is greater than zero.  By visual inspection, the difference
+  may be invisible if the threshold criterion's color representation
+  (here, 0-level = white) equates the visual perception (e.g., white
+  paper backgroun).  However, the size of a .pdf map generated this
+  way may be less than a half of a 'classic map', with similar gain in
+  overall processing, too.
+
+  Resolution independent .pdf export with a canvas originally set up
+  to 6.0 x 6.0 cm (about 2.4 x 2.4 in).
+
++ plot_diff_finger_pdf_sparse.sh, added 2019-11-04.
+
+  Derived from plot_diff_finger_pdf.sh and Ethan Merrit's hint about
+  'conditional plotting'.  Contrasting to the former example then
+  using an unilateral criterion, now a bilateral criterion is deployed
+  (the absolute value of z).
+
+  Resolution independent .pdf export with a canvas originally set up
+  to 6.0 x 6.0 cm (about 2.4 x 2.4 in).
+
 END
