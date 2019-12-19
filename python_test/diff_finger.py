@@ -1,4 +1,4 @@
-#!/bin/python3
+#!/usr/bin/env python3
 
 # name:    diff_finger.py
 # author:  nbehrnd@yahoo.com
