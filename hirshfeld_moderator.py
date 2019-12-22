@@ -4,7 +4,7 @@
 # author:  nbehrnd@yahoo.com
 # license: GPL version 2
 # date:    2019-11-14 (YYYY-MM-DD)
-# edit:    2019-12-19 (YYYY-MM-DD)
+# edit:    2019-12-22 (YYYY-MM-DD)
 #
 """ This wrapper assists the analysis of 2D fingerprints of Hirshfeld
 surface files (.cxs) computed with CrystalExplorer.  After their
@@ -45,7 +45,9 @@ As about further analyses:
 
   The sections interacting with gnuplot were set up and proved to work
   with Gnuplot.py (version 1.8), CPython 3.6.8 (Oct 7, 2019), and gnuplot
-  (5.2.7b, 2019-05-14) in Linux Xubuntu 18.04.3 LTS. """
+  (5.2.7b, 2019-05-14) in Linux Xubuntu 18.04.3 LTS.  It is very likely
+  in its present form this script will not work in a different OS, such
+  as Windows. """
 
 import argparse
 import fnmatch
