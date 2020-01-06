@@ -15,7 +15,7 @@ qualitative discern of the maps (e.g. `compare` by
 ImageMagick),<sup><a id="fnr.5" class="footref" href="#fn.5">5</a></sup> this approach allows both a visual as well as
 numeric quantification of the differences.  This is illustrated
 below with the example of two crystallographic model data describing
-two polymorphs of benzamide (fig. [3](#orgbf97ee5)).  The scope of this
+two polymorphs of benzamide (fig. [3](#orga9e8677)).  The scope of this
 analysis may be extended to iso-structural materials, too.
 
 ![img](./doc_support/alignment_normal.png "2D fingerprint maps of Hirshfeld surfaces for CCDC model BZAMID01 and BZAMID11 (left and left center), derived from the analysis by CrystalExplorer at *very high* resolution (d<sub>e</sub> and d<sub>i</sub> in the range of 0.40&#x2013;3.00 &Aring;, with a 0.01 &Aring; increment in the plane).  Qualitative difference assignment by superposition as provided by ImageMagick (right center), red pixels indicate difference between the two images inspected.  Simultaneous qualitative and quantitative spatial information provided by the *difference map* generated with the scripts of this repository (right).")
@@ -85,10 +85,10 @@ require provision of the executable bit by (`chmod u+x
 
 ## Python moderated interaction
 
-Starting with this release, Python script
-`Hirshfeld_moderator.py` is set up to facilitate the interaction
-with the `*.cxs` files in Linux.  This script file is deposit in
-sub-folder `python_testing`.<sup><a id="fnr.10" class="footref" href="#fn.10">10</a></sup>  Its *help* menu is invoked by
+Python script `Hirshfeld_moderator.py` is set up to facilitate
+the interaction with the `*.cxs` files in Linux.<sup><a id="fnr.10" class="footref" href="#fn.10">10</a></sup>  This script
+file is deposit in sub-folder `python_testing`.<sup><a id="fnr.11" class="footref" href="#fn.11">11</a></sup> Its *help*
+menu is invoked by
 
     python3 Hirshfeld_moderator.py -h
 
@@ -127,7 +127,7 @@ The absence of ruby will not affect other stages of the analysis.
 
 The visual inspection of the results is relayed to gnuplot with
 third-party module `Gnuplot.py`, which freely is available e.g.,
-with `pip`.<sup><a id="fnr.11" class="footref" href="#fn.11">11</a></sup>  To provide an initial *overview*, call
+with `pip`.<sup><a id="fnr.12" class="footref" href="#fn.12">12</a></sup>  To provide an initial *overview*, call
 
     python3 Hirshfeld_moderator.py -o
 
@@ -146,7 +146,7 @@ sets of Hirshfeld surface analyses, it may be particularly useful
 to adjust these limits for whole series (cf. below).  It is for
 this reason the lowest and highest *z*-value in the `*.dat` files
 are reported both in the images, as well as in a permanent record
-written, `gp_report.txt`.<sup><a id="fnr.12" class="footref" href="#fn.12">12</a></sup>
+written, `gp_report.txt`.<sup><a id="fnr.13" class="footref" href="#fn.13">13</a></sup>
 
 The high-resolution plots about 2D *fingerprint* or *difference
 maps* are provided either as `*.pdf`, or `*.png`.  This is
@@ -196,7 +196,7 @@ computed difference map as displayed by gnuplot.
 Note that the diagrams plot may be either `*.png` (e.g., by invoking
 `--dpng e`), or resolution independent format `*.pdf` (e.g., by
 invoking `--dpdf s`).  Thanks to gnuplot's *conditional
-plotting*,<sup><a id="fnr.13" class="footref" href="#fn.13">13</a></sup> the vector-based output tends to be less large than
+plotting*,<sup><a id="fnr.14" class="footref" href="#fn.14">14</a></sup> the vector-based output tends to be less large than
 the bitmap.
 
 
@@ -238,19 +238,25 @@ successfully.
 
 <sup><a id="fn.9" href="#fnr.9">9</a></sup> <http://gnuplot.info>
 
-<sup><a id="fn.10" href="#fnr.10">10</a></sup> Users of other operating systems (e.g., Windows) may find
+<sup><a id="fn.10" href="#fnr.10">10</a></sup> Script `hirshfeld_moderator_windows.py` in the same directory
+reduces the dependency of the calculations to CPython (e.g., the
+portable WinPython 3.6.7) and Fortran (e.g., gfortran) for an analysis
+in either Windows or Linux.  At present, the script's subsequent
+visualizaion of the maps with gnuplot works only from Linux.
+
+<sup><a id="fn.11" href="#fnr.11">11</a></sup> Users of other operating systems (e.g., Windows) may find
 `diff_finger.py` and `sum_abs_diffs.py` useful.  These proofs of
 concept mimic the action of the C, and of the ruby script in CPython.
 For one, to work with them, a dedicated C or ruby compiler is not
 required.  However, their functionality is not yet implemented into
 the moderator script, `hirshfeld_moderator.py`.
 
-<sup><a id="fn.11" href="#fnr.11">11</a></sup> In preparation of this guide, `Gnuplot.py` in version 1.8 was
+<sup><a id="fn.12" href="#fnr.12">12</a></sup> In preparation of this guide, `Gnuplot.py` in version 1.8 was
 used successfully.
 
-<sup><a id="fn.12" href="#fnr.12">12</a></sup> The entries may be sorted, e.g., by `sort -k4 -n input.txt -o
+<sup><a id="fn.13" href="#fnr.13">13</a></sup> The entries may be sorted, e.g., by `sort -k4 -n input.txt -o
 output.txt`, as  `sort` is part of the GNU coreutils.
 
-<sup><a id="fn.13" href="#fnr.13">13</a></sup> Thanks to Ethan Merrit who suggested this additional
+<sup><a id="fn.14" href="#fnr.14">14</a></sup> Thanks to Ethan Merrit who suggested this additional
 improvement in a private communication.  The reduction of file volume
 is especially observed for the generation of `*.pdf`.
