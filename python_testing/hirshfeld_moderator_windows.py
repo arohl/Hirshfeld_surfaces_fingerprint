@@ -60,17 +60,17 @@ import numpy as np
 
 try:
     import Gnuplot as gp
-except IOError:
+except:
     print("Third party CPython module 'Gnuplot.py' is not accessible.")
     print("Check its installation, e.g. with pip.  Otherwise this script")
     print("will not call gnuplot to plot diagnostic scatter plots.")
 
     print("\n[0]\t to stop the script.")
-    print("[1]\t to continue this script.")
+    print("[1]\t work with this script continues without gnuplot.")
 
     try:
         gnuplot_check = int(input())
-    except IOError:
+    except:
         print("Invalid input, the script closes now.")
         sys.exit(0)
     if gnuplot_check == 0:
