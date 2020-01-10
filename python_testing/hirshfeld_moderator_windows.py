@@ -4,7 +4,7 @@
 # author:  nbehrnd@yahoo.com
 # license: GPL version 2
 # date:    2020-01-06 (YYYY-MM-DD)
-# edit:    2020-01-06 (YYYY-MM-DD)
+# edit:    2020-01-10 (YYYY-MM-DD)
 #
 """ This script assists in the normalization of 2D Hirshfeld surface
 fingerprints, the computation of difference maps and difference numbers.
