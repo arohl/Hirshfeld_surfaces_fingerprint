@@ -4,7 +4,7 @@
 # author:  nbehrnd@yahoo.com
 # license: 2019, GPLv2
 # date:    2019-12-19 (YYYY-MM-DD)
-# edit:    2020-01-10 (YYYY-MM-DD)
+# edit:    2020-01-31 (YYYY-MM-DD)
 """ Compute difference maps of normalized 2D Hirshfeld surface maps
 
     The number of programming languages around the computation of already
@@ -36,7 +36,6 @@ import fnmatch
 import os
 import sys
 
-from decimal import Decimal
 import numpy as np
 
 diff_register = []
@@ -50,7 +49,7 @@ for file in os.listdir("."):
 diff_register.sort()
 
 # comparing the normalized 2D Hirshfeld surface maps
-if len(diff_register) > 1:
+while len(diff_register) > 1:
     for entry in diff_register[1:]:
         ref_file = diff_register[0]
         probe_file = entry
@@ -146,15 +145,18 @@ if len(diff_register) > 1:
             for result_entry in result_list:
                 to_reformat = str(result_entry).split()
 
-                x_value = round(Decimal(str(to_reformat[0])[1:-1]), 2)
-                y_value = round(Decimal(str(to_reformat[1])[0:-1]), 2)
-                z_value = round(Decimal(str(to_reformat[2])[0:-1]), 8)
+                x_value = str("{:3.2f}".format(
+                    float(str(to_reformat[0])[1:-1])))
+                y_value = str("{:3.2f}".format(
+                    float(str(to_reformat[1])[0:-1])))
+                z_value = str("{:10.8f}".format(
+                    round(float(str(to_reformat[2])[0:-1]), 8)))
 
                 # re-insert the blanks met in normalized 2D fingerprints:
                 if float(y_value) == float(ref_y_min):
                     newfile.write("\n")
 
-                retain = str("{}, {}, {}\n".format(x_value, y_value, z_value))
+                retain = str("{} {} {}\n".format(x_value, y_value, z_value))
                 newfile.write(retain)
 
         # Remove the very first line in the report file (a blank one):
@@ -166,5 +168,7 @@ if len(diff_register) > 1:
             for entry in interim[1:]:
                 newfile.write(str(entry))
 
+    # enter the next round of the Round robin tournament:
+    del diff_register[0]
 print("done")
 sys.exit(0)
