@@ -4,7 +4,7 @@
 # author:  nbehrnd@yahoo.com
 # license: GPL version 2
 # date:    2020-01-06 (YYYY-MM-DD)
-# edit:    2020-02-17 (YYYY-MM-DD)
+# edit:    2020-02-18 (YYYY-MM-DD)
 #
 """ Simplified moderator script for the DeltaHirshfeld analysis.
 
@@ -22,12 +22,6 @@ This is b) why the task of generation of normalized 2D Hirshfeld surface
 fingerprints still is relayed to the Fortran script fingerprint.f90, which
 is the sole other file beside this script (hirshfeld_moderator_windows.py)
 you need to put into the folder of .cxs to analyze.
-
-With the exception of numpy, considerably supporting the underlying work
-to compute the difference maps, again this script uses Python modules a
-typical Python installation already includes.  (To find more about numpy,
-see for example http://www.numpy.org/.)  Thus, the script should work on
-Windows, Linux, and MacOS.
 
 In the course of running the script, fingerprint.f90 needs to be compiled.
 The script attempts to do this on the fly with either gfortran, or gcc,
@@ -115,15 +109,17 @@ def file_crawl(copy=False):
     cxs_to_copy = []
 
     for folder, subfolders, files in os.walk(root):
-        for subfolder in subfolders:
-            os.chdir(subfolder)
-            for file in os.listdir("."):
-                if file.endswith(".cxs"):
-                    cxs_to_copy.append(os.path.abspath(file))
-                    if copy is False:
+        try:
+            for subfolder in subfolders:
+                os.chdir(subfolder)
+                for file in os.listdir("."):
+                    if file.endswith(".cxs"):
+                        cxs_to_copy.append(os.path.abspath(file))
                         counter += 1
                         print("{}\t{}".format(counter, file))
-            os.chdir(root)
+                os.chdir(root)
+        except:
+            continue
 
     if copy is True:  # not considered execpt on explicit consent.
         for entry in cxs_to_copy:
@@ -724,9 +720,10 @@ def pdf_map(xmin=0.4, xmax=3.0, zmax=0.08, screen="off", alt=0, bg=0):
         pl += str('set xtics format "%2.1f"; set ytics format "%2.1f"; ')
 
         pl += str('set label "d_e" at graph 0.05,0.90 left front; ')
-        pl += str('set label "d_i" at graph 0.90,0.05 left front;  ')
-        pl += str('set label "{}" at graph 0.05,0.05 left front noenhanced;  '.
-                  format(file_stamp))
+        pl += str('set label "d_i" at graph 0.90,0.05 left front; ')
+        pl += str(
+            'set label "{}" at graph 0.05,0.05 left front noenhanced; '.format(
+                file_stamp))
         pl += str(
             'set label z_top at graph 0.65,0.20 left front font "Courier,7"; ')
         pl += str(
